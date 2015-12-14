@@ -1,0 +1,103 @@
+body {
+  font-family: verdana;
+  color: #444;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.application {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.application h1 {
+  display: none;
+}
+
+.application p span {
+  display: block;
+}
+
+.pages {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.menu {
+  text-align: right;
+  float: right;
+  padding: 0;
+  margin: 20px 0;
+  width: 70%;
+}
+
+.menu li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li:before {
+  display: inline;
+  content: ' | ';
+  color: red;
+}
+
+.menu li:first-child:before {
+  content: '';
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #444;
+}
+
+.menu li a:active,
+.menu li a:focus,
+.menu li a:hover {
+  color: red;
+}
+
+.logo {
+  float: left;
+  margin: 0;
+}
+
+.main {
+  clear: both;
+}
+
+.pages h2 {
+  border-bottom: 1px solid #444;
+}
+
+.pages h3 {
+  margin-bottom: 0;
+}
+
+.musician {
+  clear: both;
+  margin-bottom: 40px;
+}
+
+.program,
+.musician p {
+  margin-top: 0;
+}
+
+.musician img {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.musician .left img {
+  float: left;
+  margin-left: 0px;
+  margin-right: 20px;
+}

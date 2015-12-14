@@ -1,0 +1,31 @@
+!!! 5
+%html{:lang => I18n.locale}
+  %head
+    %meta{:charset => 'UTF-8'}
+    = csrf_meta_tags
+
+    %title
+      = t('.title')
+
+    %link{ rel: 'icon', href: asset_path('favicon.ico') }
+    = stylesheet_link_tag 'application'
+
+  %body.pages
+    .header
+      %p.logo
+        = link_to image_tag("logo.jpg"), "/"
+      %ul.menu
+        %li
+          = link_to "Accueil", "/"
+        %li
+          = link_to "Concerts", "/concerts"
+        %li
+          = link_to "Galerie", "/gallery"
+        %li
+          = link_to "Musiciens", "/pages/musicians"
+        %li
+          = link_to "Programme", "/pages/program"
+    .main
+      = yield
+    .footer
+      
