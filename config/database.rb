@@ -13,7 +13,7 @@
 #     :socket    => '/tmp/mysql.sock'
 #   }
 #
-config = URI.parse(ENV['DATABASE_URL'] || '')
+config = URI.parse(ENV['CLEARDB_DATABASE_URL'] || '')
 
 ActiveRecord::Base.configurations[:development] = {
   :adapter   => 'mysql2',
