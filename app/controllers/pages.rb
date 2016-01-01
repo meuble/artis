@@ -32,6 +32,8 @@ Artis::App.controllers :pages do
   end
 
   get :musicians do
+    @core_members = Musician.where(:is_core_member => true).order(:position => :asc)
+    @other_members = Musician.where(:is_core_member => false).order(:position => :asc)
     render "musicians", :layout => "pages"
   end
 end

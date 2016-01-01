@@ -1,0 +1,42 @@
+# Seed add you the ability to populate your db.
+# We provide you a basic shell for interaction with the end user.
+# So try some code like below:
+#
+#   name = shell.ask("What's your name?")
+#   shell.say name
+#
+# email     = shell.ask "Which email do you want use for logging into admin?"
+# password  = shell.ask "Tell me the password to use:", :echo => false
+# 
+# shell.say ""
+# 
+# account = Account.new(:email => email, :name => "Foo", :surname => "Bar", :password => password, :password_confirmation => password, :role => "admin")
+# 
+# if account.valid?
+#   account.save
+#   shell.say "================================================================="
+#   shell.say "Account has been successfully created, now you can login with:"
+#   shell.say "================================================================="
+#   shell.say "   email: #{email}"
+#   shell.say "   password: #{?* * password.length}"
+#   shell.say "================================================================="
+# else
+#   shell.say "Sorry, but something went wrong!"
+#   shell.say ""
+#   account.errors.full_messages.each { |m| shell.say "   - #{m}" }
+# end
+# 
+# shell.say ""
+
+
+Musician.create(:name => "Catherine Imbert", :description => "Formée auprès de Denis Pascal au conservatoire de Rueil-Malmaison, Catherine Imbert est diplômée d’un master de <em>piano</em> au Köninklijk Conservatorium de Bruxelles dans la classe d’Aleksandar Madzar et travaille également la musique de chambre auprès du quatuor Ysaye et de Marie-Paule Milone. Titulaire du Diplôme d’Etat, et actuellement au CNSMDP en formation CA, Catherine enseigne dans les conservatoires de Rueil-Malmaison et du Vésinet. Catherine se produit dans différentes formations en France et en Europe: en soliste avec orchestre, en récitals solo et dans de nombreuses formations de musique de chambre. Elle est invitée en tant que piano d’orchestre dans différents festivals et fait partie également de l’ensemble Artis. En décembre 2014, Catherine joue la boîte à joujoux de Claude Debussy à la salle Gaveau dans le cadre de la saison « les marmots à Gaveau ».", :position => 1, :is_core_member => true)
+Musician.create(:name => "Ségolène Brégain", :description => "<em>Ségolène Brégain</em> commence l’<em>alto</em> au Conservatoire Municipal du XIIe arrondissement de Paris et obtient les premiers prix d’alto, musique de chambre et formation musicale. Elle poursuit ses études au C.R.R de Rueil-Malmaison dans la classe de Françoise Gnéri et obtient une médaille d’or à l’unanimité en alto et deux premiers Prix de musique de chambre. Elle termine ses études avec un premier Prix de virtuosité à l’unanimité. Elle étudie par la suite l’alto avec Michel Michalakakos, Bruno Pasquier, Miguel Da Silva et perfectionne sa formation de chambriste avec les membres du Quatuor Ysaÿe. Ségolène obtient, en 2010, le Diplôme d’Etat et enseigne actuellement le violon et l’alto au Centre Culturel d’Epône, au Conservatoire de Meaux et au Conservatoire à Rayonnement Départemental d’Aulnay-sous-Bois.", :position => 2, :is_core_member => true)
+Musician.create(:name => "Olivia Leblanc", :description => "<em>Olivia Leblanc</em> débute la <em>clarinette</em> au Conservatoire de Fontenay-sous-Bois chez Alain Chantarault puis entre successivement aux CRR de Boulogne-Billancourt et de La Courneuve dans les classes respectives de Jean-Max Dussert et de Valérie Guéroult. Elle obtient les deux fois les premiers prix de clarinette et musique de chambre. Olivia se produit aujourd’hui régulièrement en orchestre, en soliste, et en musique de chambre à Paris en province et à l’étranger et participe à de nombreux concerts de créations et enregistrements, de livres musicaux, musique de film, spectacle vivant … Titulaire de Diplôme d’État, après deux ans de formation au Cefedem Ile de France, elle enseigne depuis septembre 2010 au Conservatoire de Verrières-le-Buisson.", :position => 3, :is_core_member => true)
+
+Musician.create(:name => "Laure Franz", :description => "<em>Laure Franz</em> fait ses études de <em>violon</em> au CRR de Metz dans la classe d’André Pons où elle obtient son DEM et son premier prix de perfectionnement à l’unanimité. Elle se perfectionne ensuite chez Philippe Aïche et Frédéric Laroque au CRR de Paris en DEM puis en cycle Supérieur (premier prix à l’unanimité). Passionnée de musique de chambre, Laure travaille au CRR de Paris en sonate et en quatuor à cordes dans la classe du Quatuor Ysaye puis au CNSM de Paris dans la classe de Marc Coppey. En 2009, elle entre comme violoniste à l’Opéra de Marseille puis un an plus tard à l’orchestre de la Garde Républicaine. Elle joue régulièrement comme violoniste supplémentaire à l’orchestre de l’Opéra de Paris.", :position => 1, :is_core_member => false)
+Musician.create(:name => "Arnaud Pieniezny", :description => "<em>Arnaud Pieniezny</em> commence le <em>violon</em> au Conservatoire Départemental de Tourcoing dans la classe de Denis Le Meur. Il obtient une médaille d’or puis entre au Conservatoire Régional de Paris dans la classe de Suzanne Gessner avant d’obtenir un diplôme d’études musicales supérieures. Par la suite il est accepté à l’unanimité au Conservatoire National Supérieur de Musique de Lyon qui le conduira à un diplôme de master avec mention très bien à l’unanimité en 2013. Depuis, il travaille au sein de l’Orchestre de la Garde Républicaine de Paris et enseigne le violon dans diverses écoles de musique.", :position => 2, :is_core_member => false)
+Musician.create(:name => "Antoine Payen", :description => "<em>Antoine Payen</em> commence le <em>violoncelle</em> au conservatoire de Roubaix. Il part ensuite se perfectionner au conservatoire de Lille dans la classe d’Hélène Dautry et à celui de Rueil-Malmaison dans la classe de Jean-Marie Gamard. Titulaire du DE de violoncelle et de l’agrégation de musique, il enseigne durant 7 ans au collège. Il obtient par la suite un poste de titulaire à l’orchestre de Limoges et du Limousin. Il est également le créateur du spectacle Tonycello qui a obtenu le P’tit Molière du meilleur spectacle musical 2013.
+", :position => 3, :is_core_member => false)
+Musician.create(:name => "Michaël Tafforeau", :description => "<em>Michaël Tafforeau</em>, c’est d’abord en tant que chanteur que Michaël Tafforeau se forme pendant 7 ans à la Maîtrise de garçons de Colmar parallèlement à son apprentissage du <em>violoncelle</em>. Il obtient ensuite son Master lors de ses études supérieures de violoncelle dans la classe de Jérôme Pernoo au Royal College of Music de Londres puis intègre la classe de pédagogie du Conservatoire National Supérieur de Musique et de Danse de Paris. Michael Tafforeau se forme également en tant que chambriste dans la classe du Chilingirian Quartet à Londres et dans celle du Quatuor Ysaÿe à Paris. Diplômé du Certificat d’Aptitude de professeur de violoncelle, il enseigne actuellement le violoncelle au Conservatoire Régional de Rueil-Malmaison.", :position => 4, :is_core_member => false)
+Musician.create(:name => "Yoann Couix", :description => "<em>Yoann Couix</em> choisit à sept ans la <em>flûte traversière</em>. A l’heure du lycée, il quitte son Auvergne natale pour Paris et des études musicales en horaires aménagés. Admis au Conservatoire National Supérieur de Musique dans la classe de Pierre-Yves Artaud, il obtient en 2010 le master de flûte traversière et un prix d’analyse musicale. Il termine en 2012 un perfectionnement de piccolo auprès de Nathalie Rozat. Titulaire du Diplôme d’Etat, Yoann enseigne son instrument à l’Ecole Normale de Musique depuis 2007. Il se passionne aussi bien pour la pédagogie que pour l’orchestre et la musique de chambre.", :position => 5, :is_core_member => false)
+Musician.create(:name => "Delphine Latil", :description => "<em>Delphine Latil</em> Diplômée du CNSMDP dans la classe d’Isabelle Moretti, elle a été formée dès son plus jeune âge, à l’ENM de La Rochelle, puis au CRR de Nantes (premier prix de harpe et de musique de chambre) dans la classe de Nathalie Henriet. Lauréate 2005 de la fondation Meyer, premier prix au concours international de l’UFAM (Union des Femmes Artistes Musiciennes), Delphine Latil a remporté en 2007 le premier prix au concours Camac à Londres.Elle se produit régulièrement en soliste et musique de chambre dans de nombreux concerts en France et à l’étranger. Delphine a également créé plusieurs spectacles de théâtre musical en tant que harpiste et comédienne.", :position => 6, :is_core_member => false)
