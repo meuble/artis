@@ -17,6 +17,7 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
+gem 'bcrypt'
 gem 'haml'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'mysql2'
@@ -28,10 +29,10 @@ gem 'rack-test', :require => 'rack/test', :group => 'test'
 # Padrino Stable Gem
 gem 'padrino', '0.13.0'
 
-# Or Padrino Edge
-# gem 'padrino', :github => 'padrino/padrino-framework'
+# File upload
+gem 'carrierwave', :require => 'carrierwave'
+# AWS S3 file storage
+gem 'fog'
 
-# Or Individual Gems
-# %w(core support gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.13.0'
-# end
+# Syntaxic sugar
+gem 'awesome_print'

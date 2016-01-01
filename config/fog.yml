@@ -1,0 +1,5 @@
+key: "AKIAJ2E74PKAJSJQZGNQ"
+secret: "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"
+region: "eu-central-1"
+bucket: "ensemble-artis"
+endpoint: 'https://s3.amazonaws.com/'

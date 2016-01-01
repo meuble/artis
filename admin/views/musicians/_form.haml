@@ -1,0 +1,39 @@
+- error = @musician.errors.include?(:name)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :name, :class => 'control-label'
+  .controls
+    =f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
+- error = @musician.errors.include?(:description)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :description, :class => 'control-label'
+  .controls
+    ~f.text_area :description, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:description, :class => 'text-error') : pat(:example)
+- error = @musician.errors.include?(:position)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :position, :class => 'control-label'
+  .controls
+    =f.text_field :position, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:position, :class => 'text-error') : pat(:example)
+- error = @musician.errors.include?(:is_core_member)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :is_core_member, :class => 'control-label'
+  .controls
+    =f.check_box :is_core_member, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:is_core_member, :class => 'text-error') : pat(:example)
+- error = @musician.errors.include?(:is_core_member)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :image, :class => 'control-label'
+  .controls
+    =f.file_field :image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
+- error = @musician.errors.include?(:image)
+
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:musicians, :index), :class => 'btn btn-default'
