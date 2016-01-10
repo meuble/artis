@@ -25,6 +25,8 @@ gem 'mysql2'
 # Test requirements
 gem 'rspec', :group => 'test'
 gem 'rack-test', :require => 'rack/test', :group => 'test'
+gem 'factory_girl', :group => 'test'
+gem 'database_cleaner', :group => 'test'
 
 # Padrino Stable Gem
 gem 'padrino', '0.13.0'
