@@ -1,0 +1,50 @@
+- error = @concert.errors.include?(:title)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :title, :class => 'control-label'
+  .controls
+    =f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
+- error = @concert.errors.include?(:description)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :description, :class => 'control-label'
+  .controls
+    ~f.text_area :description, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:description, :class => 'text-error') : pat(:example)
+- error = @concert.errors.include?(:date)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :date, :class => 'control-label'
+  .controls
+    =f.text_field :date, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:date, :class => 'text-error') : pat(:example)
+- error = @concert.errors.include?(:image)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :image, :class => 'control-label'
+  .controls
+    =f.file_field :image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
+- error = @concert.errors.include?(:musician_ids)
+
+
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  %label{:class => "control-label"}
+    Musiciens
+  .controls
+    %table
+      - @musicians.each_slice(2) do |musician_couple|
+        %tr
+          %td
+            - if musician_couple[0]
+              %label
+                = check_box_tag "concert[musicians][#{musician_couple[0].id}]"
+                = musician_couple[0].name
+          %td
+            - if musician_couple[1]
+              %label
+                = check_box_tag "concert[musicians][#{musician_couple[1].id}]"
+                = musician_couple[1].name
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:concerts, :index), :class => 'btn btn-default'

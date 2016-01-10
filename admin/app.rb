@@ -33,6 +33,7 @@ module Artis
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :concerts, '/concerts'
       role.project_module :musicians, '/musicians'
       role.project_module :accounts, '/accounts'
     end

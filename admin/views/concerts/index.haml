@@ -1,0 +1,62 @@
+%ul.nav.nav-tabs
+  %li.active=link_to tag_icon(:list, pat(:list)), url(:concerts, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:concerts, :new)
+
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header.list-menu
+          .dropdown
+            %a.list-menu-toggle.dropdown-toggle{:href => '#', :'data-toggle' => :dropdown}
+              =tag_icon :magic
+              %span.caret
+            %ul.list-menu.dropdown-menu{:role => :menu}
+              %li.list-menu-wrapper=link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              %li.list-menu-divider.divider
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                .list-menu-popover-delete-selected.popover.right
+                  .arrow
+                  %h3.popover-title=pat(:delete_selected_title)
+                  .popover-content
+                    = form_tag url(:concerts, :destroy_many), :method => :delete do
+                      =hidden_field_tag :concert_ids, :'data-delete-many-ids' => true
+                      =submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      .btn.btn-default.btn-small.cancel=pat(:cancel)
+        %th.header= mat(:concert, :id)
+        %th.header= mat(:concert, :title)
+        %th.header= mat(:concert, :description)
+        %th.header= mat(:concert, :date)
+        %th.header= mat(:concert, :image)
+        %th.header= mat(:concert, :musician_ids)
+        %th.header= mat(:concert, :created_at)
+        %th.header= mat(:concert, :updated_at)
+        %th.header.list-row-action-header
+
+    %tbody
+      -@concerts.each do |concert|
+        %tr.list-row
+          %td.list-column.list-selectable
+            =check_box_tag 'concert_ids[]', :value => concert.id, :class => 'list-selectable-checkbox'
+          %td.list-column=concert.id
+          %td.list-column=concert.title
+          %td.list-column=concert.description
+          %td.list-column=concert.date
+          %td.list-column=concert.image
+          %td.list-column=concert.musician_ids
+          %td.list-column=time_ago_in_words concert.created_at
+          %td.list-column=time_ago_in_words concert.updated_at
+          %td.list-column.list-row-action
+            .list-row-action-wrapper
+              =link_to tag_icon(:edit), :href => url(:concerts, :edit, :id => concert.id), :rel => :tooltip, :title => "#{pat(:edit)} concert", :class => 'list-row-action-wrapper-link'
+              =link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} concert", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              .popover.list-row-action-popover-delete-one.left
+                .arrow
+                %h3.popover-title=pat(:delete, :model => "concert")
+                .popover-content
+                  = form_tag url(:concerts, :destroy, :id => concert.id), :method => :delete do
+                    =submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    .btn.btn-default.btn-small.cancel=pat(:cancel)
