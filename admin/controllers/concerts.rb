@@ -13,7 +13,6 @@ Artis::Admin.controllers :concerts do
   end
 
   post :create do
-    ap params
     @concert = Concert.new(params[:concert])
     if @concert.save
       @title = pat(:create_title, :model => "concert #{@concert.id}")
