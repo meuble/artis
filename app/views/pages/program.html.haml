@@ -1,14 +1,23 @@
 %h2
-  Programmes
+  Programme
 
-%p
-  Vous voulez faire votre propre programme ?
+%ul
+  - @sections.each do |section|
+    %li
+      = link_to section.title, "/pages/program?r=#{section.title}"
 
-%p
-  c’est possible, on joue ce que vous vouez, j’sais pas quoi
+- @programs.each do |program|
+  .program
+    %h4
+      = program.title
+    %p
+      - if program.image_url.present?
+        = image_tag(program.image_url)
+      = program.description.html_safe
 
-%p
-  une petite liste si vous voulez mais on peut faire autre choses…  non exhaustive des œuvres proposées par l’Ensemble Artis:
+%h2
+  Répertoire
+
 
 %h3
   Septuor: quatuor à cordes, flûte, harpe, clarinette

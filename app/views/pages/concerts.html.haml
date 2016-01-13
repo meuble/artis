@@ -1,0 +1,24 @@
+%h2
+  Les concerts
+
+- # concert ordonné par années avec A venir en premier
+
+%ul
+  %li
+    = link_to "A venir", "/pages/concerts"
+  - @years.each do |year|
+    %li
+      = link_to year, "/pages/concerts?time=#{year}"
+
+%h3
+  = @title
+  
+- @concerts.each_with_index do |concert, index|
+  .concert
+    %h4
+      = concert.title
+      \-
+      = concert.date.to_s(:long)
+    %p
+      = image_tag(concert.image_url)
+      = concert.description.html_safe
