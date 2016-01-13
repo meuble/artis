@@ -1,6 +1,6 @@
 class Concert < ActiveRecord::Base
   mount_uploader :image, Uploader
-  validates_presence_of :title, :description, :date
+  validates_presence_of :title, :date
 
   def musicians=(params)
     self.musician_ids = ""
