@@ -1,0 +1,32 @@
+- error = @program.errors.include?(:title)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :title, :class => 'control-label'
+  .controls
+    =f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
+- error = @program.errors.include?(:description)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :description, :class => 'control-label'
+  .controls
+    ~f.text_area :description, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:description, :class => 'text-error') : pat(:example)
+- error = @program.errors.include?(:image)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :section, :class => 'control-label'
+  .controls
+    ~f.select :section_id, :options => Section.order(:position).all.map {|r| [r.title, r.id]}, :selected => 'delete', :class => 'form-control input-large input-with-feedback'
+    
+    %span.help-inline=error ? f.error_message_on(:section_id, :class => 'text-error') : pat(:example)
+- error = @program.errors.include?(:image)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :image, :class => 'control-label'
+  .controls
+    =f.file_field :image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:programs, :index), :class => 'btn btn-default'
