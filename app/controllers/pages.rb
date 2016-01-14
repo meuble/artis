@@ -32,7 +32,7 @@ Artis::App.controllers :pages do
   end
 
   get :program do
-    @sections = Section.all
+    @sections = Section.order(:position => :asc).all
     @programs = Program.where(:section_id => Section.where(:title => params[:r]).first.try(:id)).all
     render "program", :layout => "pages"
   end
