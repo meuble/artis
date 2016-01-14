@@ -45,7 +45,7 @@ Artis::App.controllers :pages do
 
   get :concerts do
     @time = params[:time] || "2016"
-    @years = Concert.select(:date).order(:date => :asc).all.map {|c| c.date.year }
+    @years = Concert.select(:date).order(:date => :asc).all.map {|c| c.date.year }.uniq
     @years.pop
     @concerts = Concert.where("YEAR(date) = ?", @time).order(:date => :desc).all
     @title = "A venir"
