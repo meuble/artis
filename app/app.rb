@@ -1,5 +1,13 @@
 module Artis
   class App < Padrino::Application
+    use Rack::Auth::Basic, "Protected Area" do |username, password|
+      if ENV['HTTP_USER'].present? && ENV['HTTP_PASSWORD'].present?
+        username == ENV['HTTP_USER'] && password == ENV['HTTP_PASSWORD']
+      else
+        false
+      end
+    end
+
     use ConnectionPoolManagement
     register Padrino::Mailer
     register Padrino::Helpers
