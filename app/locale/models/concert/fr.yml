@@ -1,0 +1,13 @@
+fr:
+  models:
+    concert:
+      name: Concert
+      attributes:
+        id: Id
+        title: Titre
+        description: Description
+        date: Date
+        image: Image
+        musician_ids: Musiciens
+        created_at: Créé le
+        updated_at: Mis à jour le

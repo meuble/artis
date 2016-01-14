@@ -1,0 +1,12 @@
+fr:
+  models:
+    program:
+      name: Programme
+      attributes:
+        id: Id
+        title: titre
+        description: Description
+        image: Image
+        section_id: Rubrique
+        created_at: Créé le
+        updated_at: Mis à jour le

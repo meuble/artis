@@ -1,0 +1,10 @@
+fr:
+  models:
+    section:
+      name: Rubrique
+      attributes:
+        id: Id
+        title: Titre
+        position: Position
+        created_at: Créé le
+        updated_at: Mis à jour le

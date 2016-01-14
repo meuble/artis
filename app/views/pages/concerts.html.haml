@@ -18,7 +18,8 @@
     %h4
       = concert.title
       \-
-      = concert.date.to_s(:long)
+      = I18n.l(concert.date, :format => :long)
     %p
-      = image_tag(concert.image_url)
+      - if concert.image.present?
+        = image_tag(concert.image_url)
       = concert.description.html_safe
