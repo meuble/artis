@@ -6,7 +6,7 @@
 %ul
   %li
     = link_to "A venir", "/pages/concerts"
-  - @years.each do |year|
+  - @years.reverse.each do |year|
     %li
       = link_to year, "/pages/concerts?time=#{year}"
 
