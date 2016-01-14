@@ -7,7 +7,7 @@
     <![endif]-->
     %meta{:content => 'text/html; charset=utf-8', 'http-equiv' => 'Content-Type'}
     %meta{:name => :viewport, :content => 'width=device-width,initial-scale=1'}
-    %title= @title.present? ? "#{@title} | Padrino Admin" : "Padrino Admin"
+    %title= @title.present? ? "#{@title} | Artis Admin" : "Artis Admin"
     =favicon_tag 'favicon.ico'
     %link{:href => 'http://fonts.googleapis.com/css?family=Varela', :rel => :stylesheet}
     =stylesheet_link_tag 'bootstrap', 'application'
@@ -16,7 +16,7 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          =link_to 'Padrino', url(:base, :index), :class => 'navbar-brand', :title => 'Padrino Admin'
+          =link_to 'Artis', url(:base, :index), :class => 'navbar-brand', :title => 'Padrino Admin'
           %ul.nav.navbar-nav.pull-right
             %li.navbar-edit-account=link_to tag_icon(:user), url(:accounts, :edit, :id => current_account.id), :title => pat(:profile), :class => 'navbar-nav-link'
             %li.navbar-logout
@@ -38,12 +38,11 @@
       .footer-wrapper.container
         %p.pull-left
           Copyright &copy;
-          =Time.now.year
-          Your Site - Powered by Padrino v.#{Padrino.version}
+          Artis - Powered by Padrino v.#{Padrino.version}
         %ul.pull-right.footer-links
-          %li= link_to tag_icon(:home, 'web'), 'http://www.padrinorb.com', :target => :_blank, :class => 'footer-links-link'
-          %li= link_to tag_icon(:heart, 'blog'), 'http://www.padrinorb.com/blog', :target => :_blank, :class => 'footer-links-link'
-          %li= link_to tag_icon(:github, 'code'), 'https://github.com/padrino/padrino-framework', :target => :_blank, :class => 'footer-links-link'
-          %li= link_to tag_icon(:twitter, 'twitter'), 'http://twitter.com/padrinorb', :target => :_blank, :class => 'footer-links-link'
+          %li= link_to tag_icon(:home, 'web'), 'http://thesocialclient.com', :target => :_blank, :class => 'footer-links-link'
+          %li= link_to tag_icon(:heart, 'blog'), 'http://imeuble.info', :target => :_blank, :class => 'footer-links-link'
+          %li= link_to tag_icon(:github, 'code'), 'https://github.com/meuble/artis', :target => :_blank, :class => 'footer-links-link'
+          %li= link_to tag_icon(:twitter, 'twitter'), 'http://twitter.com/meuble', :target => :_blank, :class => 'footer-links-link'
 
     =javascript_include_tag 'jquery-1.11.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application
