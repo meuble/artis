@@ -4,13 +4,11 @@
 - # concert ordonné par années avec A venir en premier
 
 %ul.years
-  %li
-    = link_to "a venir", "/pages/concerts"
   - @years.reverse.each do |year|
     %li
       = link_to year, "/pages/concerts?time=#{year}"
 
-%h3
+%h2
   = @title
   
 - @concerts.each_with_index do |concert, index|
