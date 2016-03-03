@@ -22,3 +22,6 @@
     %p{:class => index % 2 == 0 ? "left" : "right"}
       = image_tag(musician.image_url)
       = musician.description.html_safe
+
+%p.link-to-top
+  = link_to "retour en haut de page", "#"
