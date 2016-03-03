@@ -5,7 +5,7 @@
 
 %ul.years
   %li
-    = link_to "A venir", "/pages/concerts"
+    = link_to "a venir", "/pages/concerts"
   - @years.reverse.each do |year|
     %li
       = link_to year, "/pages/concerts?time=#{year}"
@@ -16,10 +16,20 @@
 - @concerts.each_with_index do |concert, index|
   .concert
     %h4
-      = concert.title
+      %span.date
+        = I18n.l(concert.date, :format => :long)
       \-
-      = I18n.l(concert.date, :format => :long)
+      = link_to concert.place, "https://www.google.com/maps/search/#{concert.place}/", :target => "_blank"
     %p
       - if concert.image.present?
         = link_to image_tag(concert.image.thumb.url), concert.image.normal.url, :target => "_blank"
-      = concert.description.html_safe
+      %span.title
+        = concert.title
+      %br
+      = concert.subtitle
+      %br
+      %br
+      = (concert.description.gsub("\n", "<br />")).html_safe
+
+%p.link-to-top
+  = link_to "retour en haut de page", "#"

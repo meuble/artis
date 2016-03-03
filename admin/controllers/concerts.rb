@@ -42,6 +42,7 @@ Artis::Admin.controllers :concerts do
     @title = pat(:update_title, :model => "concert #{params[:id]}")
     @concert = Concert.find(params[:id])
     if @concert
+      @concert.image = nil if params[:concert] && params[:concert][:remove_image]
       if @concert.update_attributes(params[:concert])
         flash[:success] = pat(:update_success, :model => 'Concert', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?

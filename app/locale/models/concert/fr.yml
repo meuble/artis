@@ -5,7 +5,9 @@ fr:
       attributes:
         id: Id
         title: Titre
+        subtitle: Sous-titre
         description: Description
+        place: Lieu
         date: Date
         image: Image
         musician_ids: Musiciens
