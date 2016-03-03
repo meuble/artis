@@ -8,27 +8,28 @@
       = t('.title')
 
     %link{ rel: 'icon', href: asset_path('favicon.ico') }
+    %link{ href: "https://fonts.googleapis.com/css?family=Marck+Script", rel: 'stylesheet', type:'text/css' }
     = stylesheet_link_tag 'application'
 
   %body.pages
     .header
       %p.logo
-        = link_to image_tag("logo.jpg"), "/"
+        = link_to image_tag("logo.png"), "/"
       %ul.menu
         %li
-          = link_to "Accueil", "/"
+          = link_to "accueil", "/"
         %li
-          = link_to "Musiciens", "/pages/musicians"
+          = link_to "musiciens", "/pages/musicians"
         %li
-          = link_to "Agenda", "/pages/concerts"
+          = link_to "agenda", "/pages/concerts"
         %li
-          = link_to "Programmes", "/pages/program"
+          = link_to "programmes", "/pages/program"
         %li
-          = link_to "Galerie", "/gallery"
+          = link_to "galerie", "/gallery"
         %li
-          = link_to "Contact", "/pages/contact"
+          = link_to "contact", "/pages/contact"
 
     .main
       = yield
     .footer
-      
+

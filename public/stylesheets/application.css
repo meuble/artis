@@ -1,5 +1,5 @@
 body {
-  font-family: verdana;
+  font-family: arial;
   color: #444;
   background-color: #FAFAFA;
 }
@@ -22,13 +22,19 @@ em {
   display: block;
 }
 
+.intro {
+  text-align: justify;
+}
+
 .pages {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .menu {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.4em;
   text-align: right;
   float: right;
   padding: 0;
@@ -73,7 +79,13 @@ em {
 }
 
 .pages h2 {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.8em;
   border-bottom: 1px solid #444;
+}
+
+.pages h3 {
+  font-size: 1em;
 }
 
 .musician {
@@ -148,4 +160,26 @@ em {
 .concert img {
   float: left;
   margin: 0 20px 20px 0;
+}
+
+.link-to-top {
+  text-align: right;
+  clear: both;
+}
+
+.concert a,
+.concert a:active,
+.concert a:focus,
+.link-to-top a,
+.link-to-top a:active,
+.link-to-top a:focus {
+  color: #444;
+}
+
+.concert .title {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.3em;
+}
+.concert p {
+  text-align: justify;
 }
