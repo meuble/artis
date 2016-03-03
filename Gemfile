@@ -33,6 +33,7 @@ gem 'padrino', '0.13.0'
 
 # File upload
 gem 'carrierwave', :require => 'carrierwave'
+gem 'mini_magick'
 # AWS S3 file storage
 gem 'fog'
 

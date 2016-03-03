@@ -2,7 +2,7 @@
   Musiciens
 
 %h3
-  Membres fondateurs
+  Membres fondatrices
 
 - @core_members.each_with_index do |musician, index|
   .musician
@@ -13,7 +13,7 @@
       = musician.description.html_safe
 
 %h3
-  Musiciens : les autres
+  Musiciens
 
 - @other_members.each_with_index do |musician, index|
   .musician

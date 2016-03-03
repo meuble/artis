@@ -1,10 +1,9 @@
 %h2
-  Programme
+  Programmes
 
-%ul
+%ul.programs
   - @sections.each do |section|
-    %li
-      = link_to section.title, "/pages/program?r=#{section.title}"
+    %li= link_to section.title, "/pages/program?r=#{section.title}"
 
 - @programs.each do |program|
   .program
