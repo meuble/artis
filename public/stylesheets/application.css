@@ -183,7 +183,7 @@ em {
 
 .concert a:hover,
 .link-to-top a:hover {
-  color: #444;
+  color: red;
 }
 
 .concert .title {
