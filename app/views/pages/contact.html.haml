@@ -4,8 +4,8 @@
 %p
   %b
     Téléphone :
-  +33 6 63 22 08 12
+  = Setting.where(:key => "contact_phone_number").first.try(:value)
 %p
   %b
     Email :
-  artiscourriel@gmail.com
+  = Setting.where(:key => "contact_email").first.try(:value)
