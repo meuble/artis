@@ -12,7 +12,7 @@
       = image_tag(musician.image_url)
       = musician.description.html_safe
 
-%h3
+%h3.other_musicians
   Musiciens
 
 - @other_members.each_with_index do |musician, index|

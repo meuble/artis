@@ -169,6 +169,7 @@ em {
 .link-to-top {
   text-align: right;
   clear: both;
+  padding-top: 40px;
 }
 
 .concert a,
@@ -180,10 +181,21 @@ em {
   color: #444;
 }
 
+.concert a:hover,
+.link-to-top a:hover {
+  color: #444;
+}
+
 .concert .title {
   font-family: 'Marck Script', cursive;
   font-size: 1.3em;
 }
 .concert p {
   text-align: justify;
+}
+
+.other_musicians {
+  clear: both;
+  border-bottom: 1px solid #444;
+  margin-top: 20px;
 }
