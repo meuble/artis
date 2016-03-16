@@ -48,7 +48,7 @@ Artis::App.controllers :pages do
     if params[:time]
       @time = params[:time]
       @concerts = Concert.where("YEAR(date) = ?", @time).order(:date => :desc).all
-      @title = "Concert de #{@time}"
+      @title = "Concerts de #{@time}"
     else
       @time = Time.now.year
       @concerts = Concert.where("YEAR(date) = ? or YEAR(date) = ?", @time, @time.to_i - 1).order(:date => :desc).all
