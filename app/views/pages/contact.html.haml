@@ -9,3 +9,6 @@
   %b
     Email :
   = Setting.where(:key => "contact_email").first.try(:value)
+%p
+  Suivez nous sur Facebook :
+  = link_to "https://www.facebook.com/EnsembleLesQuintes/", "https://www.facebook.com/EnsembleLesQuintes/", :target => "blank"
