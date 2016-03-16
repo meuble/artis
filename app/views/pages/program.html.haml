@@ -11,8 +11,8 @@
       = program.title
     %p
       - if program.image_url.present?
-        = image_tag(program.image_url)
-      = program.description.html_safe
+        = image_tag(program.image_url(:thumb))
+      = (program.description.gsub("\n", "<br />")).html_safe
 
 %h2
   Répertoire
