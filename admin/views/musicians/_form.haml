@@ -21,9 +21,16 @@
   =f.label :is_core_member, :class => 'control-label'
   .controls
     =f.check_box :is_core_member, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:is_core_member, :class => 'text-error') : pat(:example)
+    %span.help-inline=error ? f.error_message_on(:is_core_member, :class => 'text-error') : ""
 - error = @musician.errors.include?(:is_core_member)
+
 %fieldset.control-group{:class => error ? 'has-error' : ''}
+  - if @musician.image
+    = image_tag(@musician.image_url)
+    %br
+    = f.label "Supprimer l'image existante", :class => 'control-label'
+    .controls
+      = check_box_tag "musician[remove_image]"
   =f.label :image, :class => 'control-label'
   .controls
     =f.file_field :image, :class => 'form-control input-large input-with-feedback'
