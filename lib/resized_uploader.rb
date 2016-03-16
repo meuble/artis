@@ -1,6 +1,6 @@
 require File.expand_path("../../config/carrierwave", __FILE__)
 
-class ConcertUploader < CarrierWave::Uploader::Base
+class ResizedUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :fog
   version :normal do
