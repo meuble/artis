@@ -17,8 +17,15 @@
     ~f.select :section_id, :options => Section.order(:position).all.map {|r| [r.title, r.id]}, :selected => 'delete', :class => 'form-control input-large input-with-feedback'
     
     %span.help-inline=error ? f.error_message_on(:section_id, :class => 'text-error') : pat(:example)
+
 - error = @program.errors.include?(:image)
 %fieldset.control-group{:class => error ? 'has-error' : ''}
+  - if @program.image
+    = image_tag(@program.image.thumb.url)
+    %br
+    = f.label "Supprimer l'image existante", :class => 'control-label'
+    .controls
+      = check_box_tag "program[remove_image]"
   =f.label :image, :class => 'control-label'
   .controls
     =f.file_field :image, :class => 'form-control input-large input-with-feedback'
