@@ -59,4 +59,8 @@ Artis::App.controllers :pages do
 
     render "concerts", :layout => "pages"
   end
+
+  get :gallery do
+    render "gallery", :layout => "pages"
+  end
 end
