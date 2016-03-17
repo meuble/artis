@@ -13,7 +13,7 @@
 
 %div
   - @concerts.each_with_index do |concert, index|
-    .concert
+    .concert{:class => concert.image.present? ? "with-image" : "without-image"}
       %h4
         %span.date
           = I18n.l(concert.date, :format => :long)

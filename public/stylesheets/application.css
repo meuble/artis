@@ -1,7 +1,22 @@
 body {
   font-family: arial;
   color: #444;
+  background: url(/images/pattern3.png) repeat-y left top, url(/images/pattern4.png) repeat-y right top;
   background-color: #FAFAFA;
+}
+
+body.application {
+  background: #FAFAFA;
+}
+
+a {
+  color: #444;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: red;
 }
 
 em {
@@ -169,7 +184,15 @@ em {
 }
 
 .concert h4 {
-  font-size: 1.1em;
+  font-size: 1.4em;
+}
+
+.concert.without-image h4 {
+  margin-bottom: 0;
+}
+
+.concert.without-image p {
+  margin-top: 0;
 }
 
 .concert .description span {
