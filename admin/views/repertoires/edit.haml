@@ -1,0 +1,8 @@
+%ul.nav.nav-tabs
+  %li=link_to tag_icon(:list, pat(:list)), url(:repertoires, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:repertoires, :new)
+  %li.active=link_to tag_icon(:edit, pat(:edit)), url(:repertoires, :edit, :id => @repertoire.id)
+
+.tabs-content
+  = form_for :repertoire, url(:repertoires, :update, :id => @repertoire.id), :method => :put, :class => 'form-horizontal' do |f|
+    =partial 'repertoires/form', :locals => { :f => f }
