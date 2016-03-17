@@ -9,7 +9,7 @@
   Actualités
 
 %p.news
-  = Setting.where(:key => "news").first.try(:value).html_safe
+  = Setting.where(:key => "news").first.try(:value).try(:html_safe)
 
 - if @concert
   .concerts
