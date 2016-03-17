@@ -196,11 +196,13 @@ em {
   color: red;
 }
 
+.program,
 .concert {
   clear: both;
   padding-top: 20px;
 }
 
+.program:first-child,
 .concert:first-child {
   padding-top: 0px;
 }
