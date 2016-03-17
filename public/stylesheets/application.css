@@ -1,7 +1,8 @@
 body {
   font-family: arial;
   color: #444;
-  background: url(/images/pattern3.png) repeat-y left top, url(/images/pattern4.png) repeat-y right top;
+/*  background: url(/images/pattern3.png) repeat-y left top, url(/images/pattern4.png) repeat-y right top;*/
+  background: url(/images/pattern.png) no-repeat left 150px;
   background-color: #FAFAFA;
 }
 
@@ -247,4 +248,14 @@ em {
 
 .repertoires td {
   vertical-align: top;
+}
+
+.news {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.3em;
+}
+
+.group_picture {
+  text-align: center;
+  margin: 50px 0;
 }

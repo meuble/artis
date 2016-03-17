@@ -24,6 +24,7 @@ Artis::App.controllers :pages do
   end
 
   get :intro do
+    @concert = Concert.where("date > ?", Time.now).order(:date => "asc").first
     render "intro", :layout => "pages"
   end
 
