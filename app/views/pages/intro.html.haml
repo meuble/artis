@@ -11,6 +11,8 @@
 %p.news
   = Setting.where(:key => "news").first.try(:value).try(:html_safe)
 
+%h2
+  Prochain concert :
 - if @concert
   .concerts
     .concert{:class => @concert.image.present? ? "with-image" : "without-image"}

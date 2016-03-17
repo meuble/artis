@@ -173,7 +173,7 @@ em {
 .years li:before {
   display: inline;
   content: ' | ';
-  color: black;
+  color: red;
 }
 
 .programs li:first-child:before,
@@ -208,7 +208,7 @@ em {
 }
 
 .concert h4 {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .concert .date {
