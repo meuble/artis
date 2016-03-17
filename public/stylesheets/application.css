@@ -24,6 +24,11 @@ em {
   font-weight: bold;
 }
 
+.script {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.4em;
+}
+
 .application {
   margin: 0 auto;
   text-align: center;
