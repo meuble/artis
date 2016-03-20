@@ -237,7 +237,8 @@ em {
 
 .program span,
 .repertoire span,
-.concert span {
+.concert span,
+.intro span, {
   font-family: 'Marck Script', cursive;
   font-size: 1.3em;
 }
