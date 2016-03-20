@@ -8,7 +8,7 @@
 - @programs.each do |program|
   .program
     %h4
-      = program.title
+      = (program.title.gsub("\n", "<br />")).html_safe
     %p
       - if program.image_url.present?
         = image_tag(program.image_url(:thumb))
@@ -24,6 +24,6 @@
         %td
           .repertoire
             %h3
-              = repertoire.title
+              = (repertoire.title.gsub("\n", "<br />")).html_safe
             %p.program
               = (repertoire.description.gsub("\n", "<br />")).html_safe

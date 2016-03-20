@@ -1,5 +1,5 @@
 %h2
-  Contact
+  Contacts
 
 %p
   %b
@@ -11,5 +11,5 @@
   = Setting.where(:key => "contact_email").first.try(:value)
 %p
   %span.script
-    Suivez nous sur Facebook :
+    Suivez-nous sur Facebook :
   = link_to "https://www.facebook.com/EnsembleArtis", "https://www.facebook.com/EnsembleArtis", :target => "blank"
