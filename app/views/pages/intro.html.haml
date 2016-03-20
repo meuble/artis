@@ -1,6 +1,6 @@
 
 %p.intro
-  = Setting.where(:key => "home_text").first.try(:value)
+  = Setting.where(:key => "home_text").first.try(:value).try(:html_safe)
 
 %p.group_picture
   = image_tag("/images/group.png")
