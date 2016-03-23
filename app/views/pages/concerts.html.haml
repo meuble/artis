@@ -15,8 +15,7 @@
   - @concerts.each_with_index do |concert, index|
     .concert{:class => concert.image.present? ? "with-image" : "without-image"}
       %h4
-        %span.date
-          = I18n.l(concert.date, :format => :long)
+        = I18n.l(concert.date, :format => :long)
         - if concert.place != ""
           \-
         = link_to concert.place, "https://www.google.com/maps/search/#{concert.place}/", :target => "_blank"

@@ -55,7 +55,7 @@ em {
 
 .colophon {
   font-family: 'Marck Script', cursive;
-  font-size: 1.4em;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -222,7 +222,7 @@ em {
   padding-top: 0;
 }
 
-.concert .date {
+.concert h4 {
   text-transform: capitalize;
 }
 
@@ -275,8 +275,11 @@ em {
 
 .other_musicians {
   clear: both;
-  border-bottom: 1px solid #444;
   margin-top: 20px;
+}
+
+.repertoire_title {
+  padding-top: 40px;
 }
 
 .repertoire h3 {
@@ -296,4 +299,29 @@ em {
 .group_picture {
   text-align: center;
   margin: 50px 0;
+}
+
+@media screen and (max-width: 1170px) {
+  body {
+    background: url(/images/volute2.png) no-repeat fixed 20px 150px;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  body {
+    background: url(/images/volute2.png) no-repeat fixed 0px 150px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  body {
+    background: url(/images/volute2.png) no-repeat fixed 0px 150px;
+    background-size: 5%;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  body {
+    background-image: none;
+  }
 }

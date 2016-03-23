@@ -17,18 +17,15 @@
   .concerts
     .concert{:class => @concert.image.present? ? "with-image" : "without-image"}
       %h4
-        %span.date
-          = I18n.l(@concert.date, :format => :long)
+        = I18n.l(@concert.date, :format => :long)
         - if @concert.place != ""
           \-
         = link_to @concert.place, "https://www.google.com/maps/search/#{@concert.place}/", :target => "_blank"
       %p
         - if @concert.image.present?
           = link_to image_tag(@concert.image.thumb.url), @concert.image.normal.url, :target => "_blank"
-        %span.title
-          = @concert.title
+        = (@concert.title.gsub("\n", "<br />")).html_safe
         %br
-        = @concert.subtitle
+        = (@concert.subtitle.gsub("\n", "<br />")).html_safe
         %br
-        %span.description
-          = (@concert.description.gsub("\n", "<br />")).html_safe
+        = (@concert.description.gsub("\n", "<br />")).html_safe
