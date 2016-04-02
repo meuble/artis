@@ -1,10 +1,16 @@
 module Artis
   class App < Padrino::Application
-    use Rack::Auth::Basic, "Protected Area" do |username, password|
-      if ENV['HTTP_USER'].present? && ENV['HTTP_PASSWORD'].present?
-        username == ENV['HTTP_USER'] && password == ENV['HTTP_PASSWORD']
-      else
-        false
+    before do
+      unless Setting.where(:key => "is_online").first.try(:value) == "true"
+        auth_str = request.env['HTTP_AUTHORIZATION']
+        if auth_str.blank? || "#{ENV['HTTP_USER']}:#{ENV['HTTP_PASSWORD']}" != Base64.decode64(auth_str.try(:sub, /^Basic\s+/, ''))
+          response.headers["WWW-Authenticate"] = %(Basic realm="Application")
+          response.body = "HTTP Basic: Access denied.\n"
+          response.status = 401
+          halt(401, 'Not Authorized')
+        else
+          true
+        end
       end
     end
 
