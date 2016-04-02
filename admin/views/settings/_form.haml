@@ -22,7 +22,7 @@
   =f.label :image, :class => 'control-label'
   .controls
     =f.file_field :image, :class => 'form-control input-large input-with-feedback'
-    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
+    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : "Largeur de l'image de home : 1100px ; Largeur de l'image d'intro : 600px"
 - error = @setting.errors.include?(:image)
 
 .form-actions
