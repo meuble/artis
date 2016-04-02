@@ -20,10 +20,12 @@ Artis::App.controllers :pages do
   # end
   
   get :welcome do
+    @setting = Setting.where(:key => "home_picture").first
     render "welcome"
   end
 
   get :intro do
+    @setting = Setting.where(:key => "intro_picture").first
     @concert = Concert.where("date > ?", Time.now).order(:date => "asc").first
     render "intro", :layout => "pages"
   end
@@ -50,11 +52,11 @@ Artis::App.controllers :pages do
     if params[:time]
       @time = params[:time]
       @concerts = Concert.where("YEAR(date) = ?", @time).order(:date => :desc).all
-      @title = "Concerts de #{@time}"
+      @title = "#{@time}"
     else
       @time = Time.now.year
       @concerts = Concert.where("YEAR(date) = ? or YEAR(date) = ?", @time, @time.to_i - 1).order(:date => :desc).all
-      @title = "A venir"
+      @title = ""
     end
 
     render "concerts", :layout => "pages"

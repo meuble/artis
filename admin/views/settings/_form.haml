@@ -11,6 +11,20 @@
     ~f.text_area :value, :class => 'form-control input-large input-with-feedback'
     %span.help-inline=error ? f.error_message_on(:value, :class => 'text-error') : pat(:example)
 
+- error = @setting.errors.include?(:image)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  - if @setting.image
+    = image_tag(@setting.image_url)
+    %br
+    = f.label "Supprimer l'image existante", :class => 'control-label'
+    .controls
+      = check_box_tag "setting[remove_image]"
+  =f.label :image, :class => 'control-label'
+  .controls
+    =f.file_field :image, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
+- error = @setting.errors.include?(:image)
+
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
   &nbsp;

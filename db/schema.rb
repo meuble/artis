@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 10) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 9) do
     t.text     "value",      limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image",      limit: 255
   end
 
 end

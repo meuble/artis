@@ -15,6 +15,7 @@ module Artis
     enable :sessions
 
     get "/" do
+      @setting = Setting.where(:key => "home_picture").first
       render "pages/welcome"
     end
 

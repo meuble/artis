@@ -3,7 +3,9 @@
 
 %p
   %a{:href => "/pages/intro"}
-    = image_tag("band.png")
+    - if @setting.try(:image).present?
+      = image_tag(@setting.image.url)
+
 
 %ul.colophon
   %li

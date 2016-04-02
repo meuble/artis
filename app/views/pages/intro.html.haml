@@ -3,7 +3,9 @@
   = Setting.where(:key => "home_text").first.try(:value).try(:html_safe)
 
 %p.group_picture
-  = image_tag("/images/group.png")
+  - if @setting.try(:image).present?
+    = image_tag(@setting.image.url)
+
 
 %h2
   Actualités

@@ -1,9 +1,6 @@
 %h2
   Musiciens
 
-%h3
-  Membres fondatrices
-
 - @core_members.each_with_index do |musician, index|
   .musician
     %h4
@@ -11,9 +8,6 @@
     %p{:class => index % 2 == 0 ? "left" : "right"}
       = image_tag(musician.image_url)
       = musician.description.html_safe
-
-%h3.other_musicians
-  Musiciens permanents
 
 - @other_members.each_with_index do |musician, index|
   .musician
