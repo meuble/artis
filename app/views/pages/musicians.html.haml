@@ -13,7 +13,7 @@
   .musician
     %h4
       = musician.name
-    %p{:class => index % 2 == 0 ? "left" : "right"}
+    %p{:class => index % 2 == 0 ? "right" : "left"}
       = image_tag(musician.image_url)
       = musician.description.html_safe
 
