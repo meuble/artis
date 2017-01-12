@@ -14,19 +14,20 @@
         = image_tag(program.image_url(:thumb))
       = (program.description.gsub("\n", "<br />")).html_safe
 
-%h2.repertoire_title
-  Répertoire
+- if @section.blank? || @section == "Concerts à la carte"
+  %h2.repertoire_title
+    Répertoire
 
-%table.repertoires
-  - @repertoires.each_slice(2) do |repertoires|
-    %tr
-      - repertoires.each do |repertoire|
-        %td
-          .repertoire
-            %h3
-              = (repertoire.title.gsub("\n", "<br />")).html_safe
-            %p.program
-              = (repertoire.description.gsub("\n", "<br />")).html_safe
+  %table.repertoires
+    - @repertoires.each_slice(2) do |repertoires|
+      %tr
+        - repertoires.each do |repertoire|
+          %td
+            .repertoire
+              %h3
+                = (repertoire.title.gsub("\n", "<br />")).html_safe
+              %p.program
+                = (repertoire.description.gsub("\n", "<br />")).html_safe
 
 %p.link-to-top
   = link_to "retour en haut de page", "#"
