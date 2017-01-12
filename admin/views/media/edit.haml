@@ -1,0 +1,8 @@
+%ul.nav.nav-tabs
+  %li=link_to tag_icon(:list, pat(:list)), url(:media, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:media, :new)
+  %li.active=link_to tag_icon(:edit, pat(:edit)), url(:media, :edit, :id => @media.id)
+
+.tabs-content
+  = form_for :media, url(:media, :update, :id => @media.id), :method => :put, :class => 'form-horizontal' do |f|
+    =partial 'media/form', :locals => { :f => f }

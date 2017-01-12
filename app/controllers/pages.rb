@@ -63,6 +63,10 @@ Artis::App.controllers :pages do
   end
 
   get :gallery do
+    @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
+    @medium = Media.order(:id => :desc)
+    @medium = @medium.where(:kind => params[:kind]) if params[:kind]
+    @medium = @medium.all
     render "gallery", :layout => "pages"
   end
 end

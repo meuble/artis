@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 10) do
+ActiveRecord::Schema.define(version: 11) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 10) do
     t.datetime "updated_at"
     t.string   "subtitle",     limit: 255
     t.string   "place",        limit: 255
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "kind",       limit: 255
+    t.string   "media",      limit: 255
+    t.text     "embed",      limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "musicians", force: :cascade do |t|

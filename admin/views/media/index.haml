@@ -1,0 +1,62 @@
+%ul.nav.nav-tabs
+  %li.active=link_to tag_icon(:list, pat(:list)), url(:media, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:media, :new)
+
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header.list-menu
+          .dropdown
+            %a.list-menu-toggle.dropdown-toggle{:href => '#', :'data-toggle' => :dropdown}
+              =tag_icon :magic
+              %span.caret
+            %ul.list-menu.dropdown-menu{:role => :menu}
+              %li.list-menu-wrapper=link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              %li.list-menu-divider.divider
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                .list-menu-popover-delete-selected.popover.right
+                  .arrow
+                  %h3.popover-title=pat(:delete_selected_title)
+                  .popover-content
+                    = form_tag url(:media, :destroy_many), :method => :delete do
+                      =hidden_field_tag :media_ids, :'data-delete-many-ids' => true
+                      =submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      .btn.btn-default.btn-small.cancel=pat(:cancel)
+        %th.header= mat(:media, :id)
+        %th.header= mat(:media, :title)
+        %th.header= mat(:media, :kind)
+        %th.header= mat(:media, :media)
+        %th.header= mat(:media, :url)
+        %th.header= mat(:media, :embed)
+        %th.header= mat(:media, :created_at)
+        %th.header= mat(:media, :updated_at)
+        %th.header.list-row-action-header
+
+    %tbody
+      -@media.each do |media|
+        %tr.list-row
+          %td.list-column.list-selectable
+            =check_box_tag 'media_ids[]', :value => media.id, :class => 'list-selectable-checkbox'
+          %td.list-column=media.id
+          %td.list-column=media.title
+          %td.list-column=media.kind
+          %td.list-column=media.media
+          %td.list-column=media.url
+          %td.list-column=media.embed
+          %td.list-column=time_ago_in_words media.created_at
+          %td.list-column=time_ago_in_words media.updated_at
+          %td.list-column.list-row-action
+            .list-row-action-wrapper
+              =link_to tag_icon(:edit), :href => url(:media, :edit, :id => media.id), :rel => :tooltip, :title => "#{pat(:edit)} media", :class => 'list-row-action-wrapper-link'
+              =link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} media", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              .popover.list-row-action-popover-delete-one.left
+                .arrow
+                %h3.popover-title=pat(:delete, :model => "media")
+                .popover-content
+                  = form_tag url(:media, :destroy, :id => media.id), :method => :delete do
+                    =submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    .btn.btn-default.btn-small.cancel=pat(:cancel)

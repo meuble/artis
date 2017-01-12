@@ -301,6 +301,14 @@ em {
   margin: 50px 0;
 }
 
+.media iframe {
+  width: 100%;
+}
+
+.media img {
+  width: 100%;
+}
+
 @media screen and (max-width: 1170px) {
   body {
     background: url(/images/volute2.png) no-repeat fixed 20px 150px;

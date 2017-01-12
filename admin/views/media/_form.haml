@@ -1,0 +1,40 @@
+- error = @media.errors.include?(:title)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :title, :class => 'control-label'
+  .controls
+    =f.text_field :title, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:title, :class => 'text-error') : pat(:example)
+- error = @media.errors.include?(:kind)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :kind, :class => 'control-label'
+  .controls
+    =f.select :kind, {:options => Media::KINDS, :class => 'form-control input-large input-with-feedback'} 
+    %span.help-inline=error ? f.error_message_on(:kind, :class => 'text-error') : ""
+
+- error = @media.errors.include?(:media)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  - if @media.media
+    = image_tag(@media.media_url)
+    %br
+    = f.label "Supprimer l'attachement existante", :class => 'control-label'
+    .controls
+      = check_box_tag "media[remove_media]"
+  =f.label :media, :class => 'control-label'
+  .controls
+    =f.file_field :media, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:media, :class => 'text-error') : pat("Pour les photos et presse")
+- error = @media.errors.include?(:media)
+
+- error = @media.errors.include?(:embed)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :embed, :class => 'control-label'
+  .controls
+    =f.text_field :embed, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:embed, :class => 'text-error') : pat("Pour les video et audio")
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:media, :index), :class => 'btn btn-default'
