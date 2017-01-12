@@ -31,6 +31,13 @@
     =f.file_field :image, :class => 'form-control input-large input-with-feedback'
     %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
 
+- error = @program.errors.include?(:position)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :position, :class => 'control-label'
+  .controls
+    ~f.text_field :position, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:position, :class => 'text-error') : pat(:example)
+
 .form-actions
   =f.submit pat(:save), :class => 'btn btn-primary'
   &nbsp;

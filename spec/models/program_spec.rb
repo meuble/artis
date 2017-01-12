@@ -17,5 +17,9 @@ RSpec.describe Program do
     it "should have an image" do
       expect(Program.new).to respond_to(:image)
     end
+
+    it "should have a position" do
+      expect(Program.new).to respond_to(:position)
+    end
   end
 end

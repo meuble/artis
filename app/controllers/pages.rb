@@ -36,7 +36,7 @@ Artis::App.controllers :pages do
 
   get :program do
     @sections = Section.order(:position => :asc).all
-    @programs = Program.where(:section_id => Section.where(:title => params[:r]).first.try(:id)).all
+    @programs = Program.where(:section_id => Section.where(:title => params[:r]).first.try(:id)).order(:position => :asc).all
     @repertoires = Repertoire.order(:position => :asc).all
     render "program", :layout => "pages"
   end
