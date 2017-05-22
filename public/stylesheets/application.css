@@ -316,7 +316,10 @@ em {
 .media .description {
   margin-top: 0;
 }
-
+.enter {
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
 @media screen and (max-width: 1170px) {
   body {
     background: url(/images/volute2.png) no-repeat fixed 20px 150px;
