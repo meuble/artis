@@ -13,6 +13,10 @@
       - if program.image_url.present?
         = image_tag(program.image_url(:thumb))
       = (program.description.gsub("\n", "<br />")).html_safe
+    - if program.attachment.url
+      %p
+        = link_to("Téléchargez la fiche technique", program.attachment.url, :target => "_blank")
+      
 
 - if @section.blank? || @section == "Concerts à la carte"
   %h2.repertoire_title

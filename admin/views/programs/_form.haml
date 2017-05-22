@@ -31,6 +31,21 @@
     =f.file_field :image, :class => 'form-control input-large input-with-feedback'
     %span.help-inline=error ? f.error_message_on(:image, :class => 'text-error') : pat(:example)
 
+
+- error = @program.errors.include?(:attachment)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :attachment, :class => 'control-label'
+  .controls
+    =f.file_field :attachment, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:attachment, :class => 'text-error') : pat(:example)
+  - if @program.attachment
+    = link_to(@program.attachment.url)
+    %br
+    = f.label "Supprimer le pdf existant", :class => 'control-label'
+    .controls
+      = check_box_tag "program[remove_image]"
+
+
 - error = @program.errors.include?(:position)
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   =f.label :position, :class => 'control-label'
