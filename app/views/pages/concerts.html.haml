@@ -7,6 +7,9 @@
   - @years.reverse.each do |year|
     %li
       = link_to year, "/pages/concerts?time=#{year}"
+  - if @years.size < Concert.select("distinct(year(date))").count
+    %li
+      = link_to "Archive", "/pages/concerts?time=archives"
 
 %h2
   = @title

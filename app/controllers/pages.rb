@@ -48,11 +48,16 @@ Artis::App.controllers :pages do
   end
 
   get :concerts do
-    @years = Concert.select(:date).order(:date => :asc).all.map {|c| c.date.year }.uniq.sort
+    @years = Concert.select(:date).order(:date => :asc).all.map {|c| c.date.year }.uniq.sort[-2..-1]
     if params[:time]
-      @time = params[:time]
-      @concerts = Concert.where("YEAR(date) = ?", @time).order(:date => :desc).all
-      @title = "#{@time}"
+      if params[:time] == "archives"
+        @concerts = Concert.where("YEAR(date) < ?", Time.now.year - 1).order(:date => :desc).all
+        @title = "#{@time}"
+      else
+        @time = params[:time]
+        @concerts = Concert.where("YEAR(date) = ?", @time).order(:date => :desc).all
+        @title = "#{@time}"
+      end
     else
       @time = Time.now.year
       @concerts = Concert.where("YEAR(date) = ? or YEAR(date) = ?", @time, @time.to_i - 1).order(:date => :desc).all
