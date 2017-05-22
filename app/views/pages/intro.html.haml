@@ -11,4 +11,4 @@
   Actualités
 
 %p.news
-  = Setting.where(:key => "news").first.try(:value).try(:html_safe)
+  = Setting.where(:key => "news").first.try(:value).try(:gsub, "\n", "<br />").try(:html_safe)
