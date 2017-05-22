@@ -26,7 +26,6 @@ Artis::App.controllers :pages do
 
   get :intro do
     @setting = Setting.where(:key => "intro_picture").first
-    @concert = Concert.where("date > ?", Time.now).order(:date => "asc").first
     render "intro", :layout => "pages"
   end
 
