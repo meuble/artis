@@ -63,10 +63,26 @@ Artis::App.controllers :pages do
   end
 
   get :gallery do
+    if Media.where(:kind => "Videos").exists?
+      redirect(url('pages/videos'))
+    else
+      redirect(url('pages/photos'))
+    end
+  end
+
+  get :photos do
     @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
     @medium = Media.order(:id => :desc)
-    @medium = @medium.where(:kind => params[:kind]) if params[:kind]
+    @medium = @medium.where(:kind => "Photos")
     @medium = @medium.all
-    render "gallery", :layout => "pages"
+    render "photos", :layout => "pages"
+  end
+
+  get :videos do
+    @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
+    @medium = Media.order(:id => :desc)
+    @medium = @medium.where(:kind => "Videos")
+    @medium = @medium.all
+    render "videos", :layout => "pages"
   end
 end

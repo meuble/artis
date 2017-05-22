@@ -1,12 +1,10 @@
 %h2
-  Galerie
+  Vidéos
 
 %ul.programs
-  %li
-    = link_to "Tous", "/pages/gallery"
   - @kinds.each do |kind|
     %li
-      = link_to kind, "/pages/gallery?kind=#{kind}"
+      = link_to kind, "/pages/#{kind.downcase}"
 
 %h2
   = @title
@@ -17,9 +15,6 @@
       %h4
         = media.title
       %p
-        - if media.kind == "Photos"
-          - if media.media.present?
-            = link_to image_tag(media.media.normal.url), media.media.normal.url, :target => "_blank"
         - if media.kind == "Videos" || media.kind == "Audio"
           - if media.embed.present?
             = media.embed.html_safe
