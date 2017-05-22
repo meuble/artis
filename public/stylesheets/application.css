@@ -305,13 +305,16 @@ em {
   width: 100%;
 }
 
-.media img {
-/*  width: 100%;*/
-}
-
 .photos .media {
   float: left;
   margin-right: 10px;
+}
+
+.media.press h4, .media.video h4, .media.audio h4 {
+  margin-bottom: 0;
+}
+.media .description {
+  margin-top: 0;
 }
 
 @media screen and (max-width: 1170px) {

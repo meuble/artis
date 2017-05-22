@@ -11,9 +11,12 @@
 
 %div
   - @medium.each_with_index do |media, index|
-    .media{:class => media.media.present? ? "with-image" : "without-image"}
+    .media{:class => "#{media.media.present? ? "with-image" : "without-image"} video"}
       %h4
         = media.title
+      - if media.description
+        %p.description
+          = (media.description.gsub("\n", "<br />")).html_safe
       %p
         - if media.kind == "Videos" || media.kind == "Audio"
           - if media.embed.present?
