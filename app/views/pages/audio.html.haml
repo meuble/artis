@@ -1,0 +1,23 @@
+%h2
+  Audio
+
+%ul.programs
+  - @kinds.each do |kind|
+    %li
+      = link_to kind, "/pages/#{kind.downcase}"
+
+%h2
+  = @title
+
+%div
+  - @medium.each_with_index do |media, index|
+    .media{:class => media.media.present? ? "with-image" : "without-image"}
+      %h4
+        = media.title
+      %p
+        - if media.kind == "Videos" || media.kind == "Audio"
+          - if media.embed.present?
+            = media.embed.html_safe
+
+%p.link-to-top
+  = link_to "retour en haut de page", "#"

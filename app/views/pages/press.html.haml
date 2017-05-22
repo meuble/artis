@@ -1,0 +1,24 @@
+%h2
+  Presse
+
+%ul.programs
+  - @kinds.each do |kind|
+    %li
+      = link_to kind, "/pages/#{kind.downcase}"
+
+%h2
+  = @title
+
+%div
+  - @medium.each_with_index do |media, index|
+    .media{:class => media.media.present? ? "with-image" : "without-image"}
+      %h4
+        = link_to media.title, media.media.normal.url, :target => "_blank"
+      %p
+        - if media.media.present?
+          = link_to image_tag(media.media.thumb.url), media.media.normal.url, :target => "_blank"
+
+
+
+%p.link-to-top
+  = link_to "retour en haut de page", "#"

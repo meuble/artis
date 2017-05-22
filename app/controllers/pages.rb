@@ -69,20 +69,14 @@ Artis::App.controllers :pages do
       redirect(url('pages/photos'))
     end
   end
-
-  get :photos do
-    @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
-    @medium = Media.order(:id => :desc)
-    @medium = @medium.where(:kind => "Photos")
-    @medium = @medium.all
-    render "photos", :layout => "pages"
-  end
-
-  get :videos do
-    @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
-    @medium = Media.order(:id => :desc)
-    @medium = @medium.where(:kind => "Videos")
-    @medium = @medium.all
-    render "videos", :layout => "pages"
+  
+  ["Photos", "Videos", "Presse", "Audio"].each do |kind|
+    get kind.downcase do
+      @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
+      @medium = Media.order(:id => :desc)
+      @medium = @medium.where(:kind => kind)
+      @medium = @medium.all
+      render kind.downcase, :layout => "pages"
+    end
   end
 end
