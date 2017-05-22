@@ -5,6 +5,6 @@
   %a{:href => "/pages/intro"}
     - if @setting.try(:image).present?
       = image_tag(@setting.image.url)
-%p.enter
+%p.enter.script
   %a{:href => "/pages/intro"}
     Entrez

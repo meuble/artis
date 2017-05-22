@@ -10,8 +10,10 @@
     Email :
   = Setting.where(:key => "contact_email").first.try(:value)
 %p
-  %span.script
-    Suivez-nous sur Facebook :
+  %span
+    Suivez-nous sur 
+    %em
+      Facebook :
   = link_to "https://www.facebook.com/EnsembleArtis", "https://www.facebook.com/EnsembleArtis", :target => "blank"
   
   

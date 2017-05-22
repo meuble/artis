@@ -292,8 +292,6 @@ em {
 }
 
 .news {
-  font-family: 'Marck Script', cursive;
-  font-size: 1.3em;
 }
 
 .group_picture {
@@ -317,8 +315,8 @@ em {
   margin-top: 0;
 }
 .enter {
-  text-transform: uppercase;
-  font-size: 1.1em;
+  text-transform: capitalize;
+  font-size: 2em;
 }
 @media screen and (max-width: 1170px) {
   body {
