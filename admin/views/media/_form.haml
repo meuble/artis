@@ -19,6 +19,13 @@
     =f.select :kind, {:options => Media::KINDS, :class => 'form-control input-large input-with-feedback'} 
     %span.help-inline=error ? f.error_message_on(:kind, :class => 'text-error') : ""
 
+-error = @media.errors.include?(:position)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :position, :class => 'control-label'
+  .controls
+    ~f.text_field :position, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:position, :class => 'text-error') : pat(:example)
+
 - error = @media.errors.include?(:media)
 %fieldset.control-group{:class => error ? 'has-error' : ''}
   - if @media.media

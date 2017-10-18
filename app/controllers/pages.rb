@@ -78,7 +78,7 @@ Artis::App.controllers :pages do
   ["Photos", "Videos", "Presse", "Audio"].each do |kind|
     get kind.downcase do
       @kinds = Media.select("distinct(kind)").all.map {|m| m.kind }
-      @medium = Media.order(:id => :desc)
+      @medium = Media.order(:position => :asc)
       @medium = @medium.where(:kind => kind)
       @medium = @medium.all
       render kind.downcase, :layout => "pages"

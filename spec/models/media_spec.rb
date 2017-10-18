@@ -21,6 +21,10 @@ RSpec.describe Media do
     it "should have an kind" do
       expect(Media.new).to respond_to(:kind)
     end
+
+    it "should have a position" do
+      expect(Media.new).to respond_to(:position)
+    end
   end
 
   describe "Validations" do
