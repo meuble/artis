@@ -15,7 +15,7 @@
       = (program.description.gsub("\n", "<br />")).html_safe
     - if program.attachment.url
       %p
-        = link_to("Téléchargez la fiche technique", program.attachment.url, :target => "_blank")
+        = link_to("Téléchargez le dossier", program.attachment.url, :target => "_blank")
       
 
 - if @section.blank? || @section == "Concerts à la carte"
