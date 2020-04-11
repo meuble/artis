@@ -29,13 +29,14 @@ gem 'factory_girl', :group => 'test'
 gem 'database_cleaner', :group => 'test'
 
 # Padrino Stable Gem
-gem 'padrino', '0.13.0'
+gem 'padrino', '0.14.4'
 
 # File upload
 gem 'carrierwave', :require => 'carrierwave'
 gem 'mini_magick'
 # AWS S3 file storage
 gem 'fog'
+gem 'xmlrpc'
 
 # Syntaxic sugar
 gem 'awesome_print'
