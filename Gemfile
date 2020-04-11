@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Padrino supports Ruby version 1.9 and later
-# ruby '2.0.0'
+ruby '2.7.0'
 
 # Distribute your app as a gem
 # gemspec
